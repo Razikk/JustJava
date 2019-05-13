@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
      */
     private String createOrderSummary(int price) {
         return "Name: Kaptain Kunal" +
-                "\nQuantity: " + 3 +
+                "\nQuantity: " + quantity +
                 "\nTotal: $" + price +
                 "\nThank you!";
     }

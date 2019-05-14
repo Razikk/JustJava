@@ -24,7 +24,7 @@ import android.widget.Toast;
  */
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 2;
+    int quantity = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,8 +95,17 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the + button is clicked.
      */
     public void increment(View view) {
-        quantity = quantity + 1;
-        displayQuantity(quantity);
+        if (quantity < 100) {
+            quantity += 1;
+            displayQuantity(quantity);
+        }
+        else {
+            Context context = getApplicationContext();
+            Toast toast = Toast.makeText(context,
+                    "Cannot order more than 100",
+                    Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     /**

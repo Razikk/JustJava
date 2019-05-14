@@ -47,7 +47,12 @@ public class MainActivity extends AppCompatActivity {
      * @return total price
      */
     private int calculatePrice() {
-        return quantity * 5;
+        int extraToppings = 0;
+        CheckBox hasWhippedCream = findViewById(R.id.whipped_cream_checkbox);
+        CheckBox hasChocolate = findViewById(R.id.chocolate_checkbox);
+        if (hasWhippedCream.isChecked()) extraToppings += 1;
+        if (hasChocolate.isChecked()) extraToppings += 2;
+        return quantity * (5 + extraToppings);
     }
 
     /**

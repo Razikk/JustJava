@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view) {
         if (quantity == 100) {
             // Show error message as a toast and exit method
-            Toast.makeText(this, "That's too much caffeine!", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "That's too much caffeine!", Toast.LENGTH_SHORT).show();
             return;
         }
         quantity += 1;
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(View view) {
         if (quantity == 1) {
             // Show error message as a toast and exit method
-            Toast.makeText(this, "You cannot order less than one coffee", Toast.LENGTH_SHORT);
+            Toast.makeText(this, "You cannot order less than one coffee", Toast.LENGTH_SHORT).show();
             return;
         }
         quantity -= 1;

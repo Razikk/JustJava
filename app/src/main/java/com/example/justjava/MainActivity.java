@@ -49,8 +49,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Create summary of the order.
-     * @param price of the order
+     * Create summary of the order
+     * @param price price of the order
+     * @param hasWhippedCream  whether or not user wants whipped cream topping
+     * @param hasChocolate whether or not user wants chocolate topping
      * @return text summary
      */
     private String createOrderSummary(int price, CheckBox hasWhippedCream, CheckBox hasChocolate) {

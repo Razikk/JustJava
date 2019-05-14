@@ -48,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         // get cost of order from calculatePrice method then display order summary
         int price = calculatePrice(hasWhippedCream, hasChocolate);
-        displayMessage(createOrderSummary(userName, price, hasWhippedCream, hasChocolate));
+        String orderSummary = createOrderSummary(userName, price, hasWhippedCream, hasChocolate);
+        displayMessage(orderSummary);
     }
 
     /**

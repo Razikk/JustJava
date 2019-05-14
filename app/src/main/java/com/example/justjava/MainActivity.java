@@ -34,10 +34,18 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the order button is clicked.
      */
     public void submitOrder(View view) {
-        int price = calculatePrice();
-        CheckBox hasWhippedCream = findViewById(R.id.whipped_cream_checkbox);
-        CheckBox hasChocolate = findViewById(R.id.chocolate_checkbox);
         EditText userName = findViewById(R.id.name_field);
+
+        // check if user wants whipped cream
+        CheckBox whippedCreamCheckBox = findViewById(R.id.whipped_cream_checkbox);
+        boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
+
+        // check if user wants chocolate
+        CheckBox chocolateCheckBox = findViewById(R.id.chocolate_checkbox);
+        boolean hasChocolate = chocolateCheckBox.isChecked();
+
+        // get cost of order from calculatePrice method then display order summary
+        int price = calculatePrice(hasWhippedCream, hasChocolate);
         displayMessage(createOrderSummary(userName, price, hasWhippedCream, hasChocolate));
     }
 
@@ -46,13 +54,15 @@ public class MainActivity extends AppCompatActivity {
      *
      * @return total price
      */
-    private int calculatePrice() {
-        int extraToppings = 0;
-        CheckBox hasWhippedCream = findViewById(R.id.whipped_cream_checkbox);
-        CheckBox hasChocolate = findViewById(R.id.chocolate_checkbox);
-        if (hasWhippedCream.isChecked()) extraToppings += 1;
-        if (hasChocolate.isChecked()) extraToppings += 2;
-        return quantity * (5 + extraToppings);
+    private int calculatePrice(boolean hasWhippedCream, boolean hasChocolate) {
+        // price of one cup of coffee
+        int basePrice = 5;
+
+        // add cost of extra toppings and sum the total price
+        int extraToppingsPrice = 0;
+        if (hasWhippedCream) extraToppingsPrice += 1;
+        if (hasChocolate) extraToppingsPrice += 2;
+        return quantity * (basePrice + extraToppingsPrice);
     }
 
     /**
@@ -65,11 +75,11 @@ public class MainActivity extends AppCompatActivity {
      */
     private String createOrderSummary(EditText userName,
                                       int price,
-                                      CheckBox hasWhippedCream,
-                                      CheckBox hasChocolate) {
+                                      boolean hasWhippedCream,
+                                      boolean hasChocolate) {
         return "Name: " + userName.getText() +
-                "\nAdd whipped cream? " + hasWhippedCream.isChecked() +
-                "\nAdd chocolate? " + hasChocolate.isChecked() +
+                "\nAdd whipped cream? " + hasWhippedCream +
+                "\nAdd chocolate? " + hasChocolate +
                 "\nQuantity: " + quantity +
                 "\nTotal: $" + price +
                 "\nThank you!";

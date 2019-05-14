@@ -95,34 +95,26 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the + button is clicked.
      */
     public void increment(View view) {
-        if (quantity < 100) {
-            quantity += 1;
-            displayQuantity(quantity);
+        if (quantity == 100) {
+            // Show error message as a toast and exit method
+            Toast.makeText(this, "That's too much caffeine!", Toast.LENGTH_SHORT);
+            return;
         }
-        else {
-            Context context = getApplicationContext();
-            Toast toast = Toast.makeText(context,
-                    "Cannot order more than 100",
-                    Toast.LENGTH_SHORT);
-            toast.show();
-        }
+        quantity += 1;
+        displayQuantity(quantity);
     }
 
     /**
      * This method is called when the - button is clicked.
      */
     public void decrement(View view) {
-        if (quantity > 1) {
-            quantity -= 1;
-            displayQuantity(quantity);
+        if (quantity == 1) {
+            // Show error message as a toast and exit method
+            Toast.makeText(this, "You cannot order less than one coffee", Toast.LENGTH_SHORT);
+            return;
         }
-        else {
-            Context context = getApplicationContext();
-            Toast toast = Toast.makeText(context,
-                    "Cannot order less  than 1",
-                    Toast.LENGTH_SHORT);
-            toast.show();
-        }
+        quantity -= 1;
+        displayQuantity(quantity);
     }
 
     /**

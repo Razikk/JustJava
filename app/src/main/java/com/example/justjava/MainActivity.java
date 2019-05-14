@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                                       int price,
                                       boolean hasWhippedCream,
                                       boolean hasChocolate) {
-        return "JustJava order for " + userName.getText() +
+        return getString(R.string.order_summary_name, userName.getText()) +
                 "\nAdd whipped cream? " + hasWhippedCream +
                 "\nAdd chocolate? " + hasChocolate +
                 "\nQuantity: " + quantity +

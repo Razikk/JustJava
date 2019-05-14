@@ -11,8 +11,10 @@ package com.example.justjava;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -38,18 +40,28 @@ public class MainActivity extends AppCompatActivity {
     public void submitOrder(View view) {
         EditText userName = findViewById(R.id.name_field);
 
-        // check if user wants whipped cream
+        // Check if user wants whipped cream
         CheckBox whippedCreamCheckBox = findViewById(R.id.whipped_cream_checkbox);
         boolean hasWhippedCream = whippedCreamCheckBox.isChecked();
 
-        // check if user wants chocolate
+        // Check if user wants chocolate
         CheckBox chocolateCheckBox = findViewById(R.id.chocolate_checkbox);
         boolean hasChocolate = chocolateCheckBox.isChecked();
 
-        // get cost of order from calculatePrice method then display order summary
+        // Get cost of order from calculatePrice method then display order summary
         int price = calculatePrice(hasWhippedCream, hasChocolate);
         String orderSummary = createOrderSummary(userName, price, hasWhippedCream, hasChocolate);
         displayMessage(orderSummary);
+
+        // Try to send an email with order summary
+        Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.putExtra(Intent.EXTRA_SUBJECT, orderSummary);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+        else {
+            Toast.makeText(this, "Order failed. No valid email app detected.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**

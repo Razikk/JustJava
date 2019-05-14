@@ -23,7 +23,7 @@
             android:orientation="horizontal">
 
             <CheckBox
-                android:id="@+id/toppings_check_box"
+                android:id="@+id/whipped_cream_checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="24dp"

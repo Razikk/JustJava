@@ -14,7 +14,7 @@ import android.widget.Toast;
  */
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 0;
+    int quantity = 99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
         else {
-            Toast.makeText(this, "Order failed. No valid email app detected.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.intent_failed), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
     public void increment(View view) {
         if (quantity == 100) {
             // Show error message as a toast and exit method
-            Toast.makeText(this, "That's too much caffeine!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.cannot_increment), Toast.LENGTH_SHORT).show();
             return;
         }
         quantity += 1;
@@ -114,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
     public void decrement(View view) {
         if (quantity <= 1) {
             // Show error message as a toast and exit method
-            Toast.makeText(this, "You cannot order less than one coffee", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.cannot_decrement), Toast.LENGTH_SHORT).show();
             return;
         }
         quantity -= 1;

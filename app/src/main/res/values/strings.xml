@@ -31,4 +31,13 @@
 
     <!-- Word "Total" for the total price -->
     <string name="total">Total</string>
+
+    <!-- Error toast msg when email intent fails -->
+    <string name="intent_failed">Order failed. No valid email app detected.</string>
+
+    <!-- Error toast msg when user attempts to reduce coffee quantity below 1 -->
+    <string name="cannot_decrement">You cannot order less than one coffee</string>
+
+    <!-- Error toast mg when user attempts to add >100 coffees -->
+    <string name="cannot_increment">That\'s too much caffeine!</string>
 </resources>

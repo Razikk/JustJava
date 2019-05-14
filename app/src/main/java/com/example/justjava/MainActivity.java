@@ -10,19 +10,21 @@ package com.example.justjava;
 
 
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 /**
  * This app displays an order form to order coffee.
  */
 public class MainActivity extends AppCompatActivity {
 
-    int quantity = 0;
+    int quantity = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +103,17 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the - button is clicked.
      */
     public void decrement(View view) {
-        quantity = quantity - 1;
-        displayQuantity(quantity);
+        if (quantity > 1) {
+            quantity -= 1;
+            displayQuantity(quantity);
+        }
+        else {
+            Context context = getApplicationContext();
+            Toast toast = Toast.makeText(context,
+                    "Cannot order less  than 1",
+                    Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
     /**

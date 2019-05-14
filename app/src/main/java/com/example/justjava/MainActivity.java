@@ -108,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
      * This method is called when the - button is clicked.
      */
     public void decrement(View view) {
-        if (quantity == 1) {
+        if (quantity <= 1) {
             // Show error message as a toast and exit method
             Toast.makeText(this, "You cannot order less than one coffee", Toast.LENGTH_SHORT).show();
             return;

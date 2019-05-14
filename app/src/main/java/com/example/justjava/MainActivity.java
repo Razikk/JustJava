@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         int price = calculatePrice();
         CheckBox hasWhippedCream = findViewById(R.id.whipped_cream_checkbox);
         CheckBox hasChocolate = findViewById(R.id.chocolate_checkbox);
-        EditText userName = findViewById(R.id.user_name);
+        EditText userName = findViewById(R.id.name_field);
         displayMessage(createOrderSummary(userName, price, hasWhippedCream, hasChocolate));
     }
 

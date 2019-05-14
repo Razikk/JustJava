@@ -88,10 +88,10 @@ public class MainActivity extends AppCompatActivity {
                                       boolean hasWhippedCream,
                                       boolean hasChocolate) {
         return getString(R.string.order_summary_name, userName.getText()) +
-                "\nAdd whipped cream? " + hasWhippedCream +
-                "\nAdd chocolate? " + hasChocolate +
-                "\nQuantity: " + quantity +
-                "\nTotal: $" + price +
+                "\n" + getString(R.string.whipped_cream) + "? " + hasWhippedCream +
+                "\n" + getString(R.string.chocolate) + "? " + hasChocolate +
+                "\n" + getString(R.string.quantity) + ": " + quantity +
+                "\n" + getString(R.string.total) + ": $" + price +
                 "\n" + getString(R.string.thank_you);
     }
 

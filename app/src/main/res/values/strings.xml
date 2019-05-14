@@ -28,4 +28,7 @@
 
     <!-- Text for the Order button -->
     <string name="order_button">Order</string>
+
+    <!-- Word "Total" for the total price -->
+    <string name="total">Total</string>
 </resources>

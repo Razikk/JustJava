@@ -60,10 +60,12 @@ public class MainActivity extends AppCompatActivity {
         // price of one cup of coffee
         int basePrice = 5;
 
-        // add cost of extra toppings and sum the total price
+        // add cost of extra toppings
         int extraToppingsPrice = 0;
         if (hasWhippedCream) extraToppingsPrice += 1;
         if (hasChocolate) extraToppingsPrice += 2;
+
+        //sum the total price
         return quantity * (basePrice + extraToppingsPrice);
     }
 

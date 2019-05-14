@@ -39,7 +39,10 @@ public class MainActivity extends AppCompatActivity {
         // Get cost of order from calculatePrice method then display order summary
         int price = calculatePrice(hasWhippedCream, hasChocolate);
         String orderSummary = createOrderSummary(userName, price, hasWhippedCream, hasChocolate);
+
+        /* Deleted in Udacity course
         displayMessage(orderSummary);
+        */
 
         // Try to send an email with order summary
         Intent intent = new Intent(Intent.ACTION_SENDTO);
@@ -130,8 +133,10 @@ public class MainActivity extends AppCompatActivity {
     /**
      * This method displays the given text on the screen.
      */
+    /* Deleted in Udacity course
     private void displayMessage(String message) {
         TextView orderSummaryTextView = findViewById(R.id.order_summary_text_view);
         orderSummaryTextView.setText(message);
     }
+    */
 }

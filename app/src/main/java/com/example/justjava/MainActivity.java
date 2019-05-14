@@ -43,7 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Try to send an email with order summary
         Intent intent = new Intent(Intent.ACTION_SENDTO);
-        intent.putExtra(Intent.EXTRA_SUBJECT, orderSummary);
+        intent.putExtra(Intent.EXTRA_SUBJECT, "JustJava order for " + userName);
+        intent.putExtra(Intent.EXTRA_TEXT, orderSummary);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         }
